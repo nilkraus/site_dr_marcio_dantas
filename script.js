@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const backToTop = document.getElementById('back-to-top');
     const contactForm = document.getElementById('contact-form');
     const scrollIndicator = document.querySelector('.scroll-indicator');
+    const whatsappFloat = document.getElementById('whatsapp-float');
 
     // ===== LOADING SCREEN =====
     window.addEventListener('load', function() {
@@ -55,6 +56,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Animações de scroll (fade in elements)
         animateOnScroll();
+        
+        // WhatsApp visibility e link update
+        toggleWhatsAppVisibility();
+        updateWhatsAppLink();
     });
 
     // ===== NAVEGAÇÃO SUAVE =====
@@ -433,7 +438,219 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ===== INICIALIZAÇÃO FINAL =====
+    // ===== MAPA INTERATIVO =====
+    
+    // Lazy loading do mapa para melhor performance
+    function initMapLazyLoading() {
+        const mapContainer = document.querySelector('.map-container iframe');
+        if (!mapContainer) return;
+
+        const mapObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Mapa já está carregado via HTML, apenas adicionar interações
+                    addMapInteractions();
+                    mapObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        mapObserver.observe(mapContainer);
+    }
+
+    // Adicionar interações ao mapa
+    function addMapInteractions() {
+        const mapContainer = document.querySelector('.map-container');
+        const mapIframe = mapContainer.querySelector('iframe');
+
+        // Overlay para evitar scroll indesejado
+        const mapOverlay = document.createElement('div');
+        mapOverlay.className = 'map-overlay';
+        mapOverlay.innerHTML = '<div class="map-overlay-text"><i class="fas fa-mouse-pointer"></i> Clique para interagir com o mapa</div>';
+        
+        // Estilos do overlay
+        const overlayStyles = `
+            .map-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(26, 54, 93, 0.7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: opacity 0.3s ease;
+                z-index: 10;
+            }
+            .map-overlay-text {
+                color: white;
+                font-size: 1.1rem;
+                text-align: center;
+                padding: 1rem;
+                background: rgba(212, 175, 55, 0.9);
+                border-radius: 8px;
+                backdrop-filter: blur(10px);
+            }
+            .map-overlay-text i {
+                display: block;
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+            .map-container {
+                position: relative;
+            }
+        `;
+
+        // Adicionar estilos se não existirem
+        if (!document.querySelector('#map-styles')) {
+            const styleElement = document.createElement('style');
+            styleElement.id = 'map-styles';
+            styleElement.textContent = overlayStyles;
+            document.head.appendChild(styleElement);
+        }
+
+        mapContainer.appendChild(mapOverlay);
+
+        // Remover overlay ao clicar
+        mapOverlay.addEventListener('click', function() {
+            this.style.opacity = '0';
+            setTimeout(() => {
+                this.style.display = 'none';
+            }, 300);
+        });
+
+        // Botão para abrir no Google Maps
+        const openMapButton = document.createElement('a');
+        openMapButton.href = 'https://maps.app.goo.gl/h8h9eXC54QcPB9Dd7';
+        openMapButton.target = '_blank';
+        openMapButton.className = 'open-map-btn';
+        openMapButton.innerHTML = '<i class="fas fa-external-link-alt"></i> Abrir no Google Maps';
+        
+        const buttonStyles = `
+            .open-map-btn {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background: var(--accent-color);
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 6px;
+                text-decoration: none;
+                font-size: 0.9rem;
+                font-weight: 500;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease;
+                z-index: 11;
+            }
+            .open-map-btn:hover {
+                background: #b8941f;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            }
+            .open-map-btn i {
+                margin-right: 0.5rem;
+            }
+        `;
+
+        // Adicionar estilos do botão
+        const existingMapStyles = document.querySelector('#map-styles');
+        if (existingMapStyles) {
+            existingMapStyles.textContent += buttonStyles;
+        }
+
+        mapContainer.appendChild(openMapButton);
+
+        // Tracking de cliques no mapa
+        openMapButton.addEventListener('click', function() {
+            trackEvent('click', 'map', 'open_google_maps');
+        });
+    }
+
+    // ===== GEOLOCALIZAÇÃO =====
+    
+    // Função para calcular distância (opcional)
+    function addDistanceCalculator() {
+        if (!navigator.geolocation) return;
+
+        const distanceBtn = document.createElement('button');
+        distanceBtn.className = 'distance-btn';
+        distanceBtn.innerHTML = '<i class="fas fa-route"></i> Calcular distância';
+        
+        const mapSection = document.querySelector('.map-section');
+        if (mapSection) {
+            mapSection.appendChild(distanceBtn);
+        }
+
+        distanceBtn.addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Calculando...';
+            
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const userLat = position.coords.latitude;
+                    const userLng = position.coords.longitude;
+                    const officeLat = -22.7833;
+                    const officeLng = -43.4333;
+                    
+                    const distance = calculateDistance(userLat, userLng, officeLat, officeLng);
+                    
+                    this.innerHTML = `<i class="fas fa-route"></i> Distância: ${distance.toFixed(1)} km`;
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-route"></i> Calcular distância';
+                    }, 5000);
+                },
+                (error) => {
+                    this.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Não foi possível calcular';
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-route"></i> Calcular distância';
+                    }, 3000);
+                }
+            );
+        });
+
+        // Estilos do botão de distância
+        const distanceStyles = `
+            .distance-btn {
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                padding: 0.8rem 1.5rem;
+                border-radius: 25px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 0.95rem;
+                margin-top: 1rem;
+                backdrop-filter: blur(5px);
+            }
+            .distance-btn:hover {
+                background: rgba(212, 175, 55, 0.3);
+                border-color: var(--accent-color);
+                transform: translateY(-2px);
+            }
+            .distance-btn i {
+                margin-right: 0.5rem;
+            }
+        `;
+
+        const existingMapStyles = document.querySelector('#map-styles');
+        if (existingMapStyles) {
+            existingMapStyles.textContent += distanceStyles;
+        }
+    }
+
+    // Função para calcular distância entre duas coordenadas
+    function calculateDistance(lat1, lng1, lat2, lng2) {
+        const R = 6371; // Raio da Terra em km
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLng = (lng2 - lng1) * Math.PI / 180;
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                  Math.sin(dLng/2) * Math.sin(dLng/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c;
+    }
     
     // Executar animações iniciais
     setTimeout(() => {
@@ -460,15 +677,15 @@ document.addEventListener('DOMContentLoaded', function() {
     preloadImages();
 
     console.log('✅ Site Dr. Márcio Dantas carregado com sucesso!');
-}); // <-- Fechamento correto do bloco DOMContentLoaded
 
-// ===== GOOGLE ANALYTICS / TRACKING =====
-// Função para tracking de eventos (opcional)
-function trackEvent(action, category, label) {
-    if (typeof gtag !== 'undefined') {
-        gtag('event', action, {
-            event_category: category,
-            event_label: label
-        });
+    // ===== GOOGLE ANALYTICS / TRACKING =====
+    // Função para tracking de eventos (opcional)
+    function trackEvent(action, category, label) {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', action, {
+                event_category: category,
+                event_label: label
+            });
+        }
     }
-}
+});

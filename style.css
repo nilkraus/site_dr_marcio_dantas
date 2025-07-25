@@ -700,6 +700,76 @@ body {
     min-height: 120px;
 }
 
+/* Map Section */
+.map-section {
+    margin-top: 4rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.map-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.map-header h3 {
+    color: var(--white);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.map-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+}
+
+.map-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    display: block;
+}
+
+.map-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.map-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--white);
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.map-info-item:hover {
+    background: rgba(212, 175, 55, 0.2);
+    transform: translateY(-2px);
+}
+
+.map-info-item i {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+}
+
 /* Footer */
 .footer {
     background: var(--secondary-color);
@@ -832,6 +902,88 @@ body {
     transform: translateY(-2px);
 }
 
+/* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: #25D366;
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: slideInLeft 0.6s ease 2s forwards;
+}
+
+.whatsapp-float:hover {
+    background: #128C7E;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+    text-decoration: none;
+    color: white;
+}
+
+.whatsapp-float i {
+    font-size: 1.8rem;
+    margin-right: 0;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-text {
+    font-weight: 600;
+    font-size: 1rem;
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    margin-left: 0;
+}
+
+.whatsapp-float:hover .whatsapp-text {
+    max-width: 120px;
+    margin-left: 10px;
+}
+
+.whatsapp-float:hover i {
+    transform: scale(1.1);
+}
+
+/* Animação de entrada do WhatsApp */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animação de pulsação para chamar atenção */
+@keyframes whatsappPulse {
+    0% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.8), 0 0 0 10px rgba(37, 211, 102, 0.1);
+    }
+    100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+}
+
+.whatsapp-float.pulse {
+    animation: whatsappPulse 2s infinite;
+}
+
 /* Animation Classes */
 .fade-in {
     opacity: 0;
@@ -927,6 +1079,25 @@ body {
         padding: 2rem;
     }
 
+    .map-section {
+        margin-top: 2rem;
+        padding: 1.5rem;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+
+    .map-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .map-info-item {
+        justify-content: center;
+        min-width: 200px;
+    }
+
     .hero-locations {
         flex-direction: column;
         gap: 5px;
@@ -942,6 +1113,27 @@ body {
 
     .offices-grid {
         grid-template-columns: 1fr;
+    }
+
+    .whatsapp-float {
+        bottom: 20px;
+        left: 20px;
+        padding: 12px 16px;
+    }
+
+    .whatsapp-float i {
+        font-size: 1.5rem;
+    }
+
+    .whatsapp-text {
+        font-size: 0.9rem;
+    }
+
+    .back-to-top {
+        bottom: 90px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
     }
 }
 
@@ -973,5 +1165,23 @@ body {
 
     .contact-form {
         padding: 1.5rem;
+    }
+
+    .map-section {
+        margin-top: 1.5rem;
+        padding: 1rem;
+    }
+
+    .map-header h3 {
+        font-size: 1.5rem;
+    }
+
+    .map-container iframe {
+        height: 250px;
+    }
+
+    .map-info-item {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
     }
 }

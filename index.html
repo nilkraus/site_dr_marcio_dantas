@@ -322,6 +322,16 @@
                             <p><a href="https://www.instagram.com/drmarciodantas/" target="_blank">@drmarciodantas</a></p>
                         </div>
                     </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Localização</h4>
+                            <p>Mesquita - RJ</p>
+                        </div>
+                    </div>
                 </div>
 
                 <form class="contact-form" id="contact-form">
@@ -351,6 +361,40 @@
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Enviar Mensagem</button>
                 </form>
+            </div>
+
+            <!-- Mapa do Google Maps -->
+            <div class="map-section">
+                <div class="map-header">
+                    <h3>Nossa Localização Principal</h3>
+                    <p>Av. União, 123 - Centro, Mesquita - RJ</p>
+                </div>
+                <div class="map-container">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=-22.7833,-43.4333&hl=pt&z=15&output=embed"
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Localização Dr. Márcio Dantas Advogados">
+                    </iframe>
+                </div>
+                <div class="map-info">
+                    <div class="map-info-item">
+                        <i class="fas fa-car"></i>
+                        <span>Estacionamento disponível</span>
+                    </div>
+                    <div class="map-info-item">
+                        <i class="fas fa-bus"></i>
+                        <span>Próximo ao transporte público</span>
+                    </div>
+                    <div class="map-info-item">
+                        <i class="fas fa-wheelchair"></i>
+                        <span>Acessibilidade garantida</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -401,6 +445,16 @@
     <button class="back-to-top" id="back-to-top">
         <i class="fas fa-chevron-up"></i>
     </button>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5521999999999?text=Olá%2C%20gostaria%20de%20agendar%20uma%20consulta%20jurídica." 
+       class="whatsapp-float" 
+       id="whatsapp-float" 
+       target="_blank"
+       title="Fale conosco no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-text">Fale Conosco</span>
+    </a>
 
     <script src="script.js"></script>
 </body>
