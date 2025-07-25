@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Márcio Dantas Advogados Associados</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/logo.png" alt="Logo do Escritório" class="logo-img">
+                    <span class="logo-text">Dr. Márcio Dantas</span>
+                </div>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#home" class="nav-link active">Início</a>
+                    <a href="#sobre" class="nav-link">Sobre</a>
+                    <a href="#equipe" class="nav-link">Equipe</a>
+                    <a href="#atuacao" class="nav-link">Áreas</a>
+                    <a href="#escritorios" class="nav-link">Escritórios</a>
+                    <a href="#contato" class="nav-link">Contato</a>
+                </div>
+                
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Excelência Jurídica com Compromisso Humano</h1>
+            <p class="hero-subtitle">Defendemos seus direitos com ética, transparência e resultados comprovados</p>
+            <div class="hero-locations">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Mesquita • Recreio dos Bandeirantes • Centro do Rio</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="#contato" class="btn btn-primary">Fale Conosco</a>
+                <a href="#sobre" class="btn btn-secondary">Conheça Mais</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sobre o Escritório</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead">Fundado pelo Dr. Márcio Dantas, nosso escritório representa a união perfeita entre tradição jurídica e inovação no atendimento.</p>
+                    <p>Com mais de duas décadas de experiência, oferecemos consultoria e representação jurídica especializada, sempre pautados pelos princípios de ética, transparência e busca incessante pelos melhores resultados para nossos clientes.</p>
+                    <p>Atendemos tanto pessoas físicas quanto jurídicas, desenvolvendo estratégias personalizadas nas principais áreas do Direito, sempre com foco na excelência e no relacionamento próximo com cada cliente.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="20">0</div>
+                        <div class="stat-label">Anos de Experiência</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="1000">0</div>
+                        <div class="stat-label">Casos Resolvidos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="98">0</div>
+                        <div class="stat-label">% de Satisfação</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="equipe" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nosso Time de Especialistas</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Profissionais altamente qualificados e especializados</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card" data-aos="fade-up">
+                    <div class="team-image">
+                        <img src="images/marcio.png" alt="Dr. Márcio Dantas">
+                        <div class="team-overlay">
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Dr. Márcio Dantas</h3>
+                        <p class="team-role">Sócio Fundador</p>
+                        <p class="team-oab">OAB/RJ 123456</p>
+                        <p class="team-specialty">Especialista em Direito Civil e Empresarial</p>
+                    </div>
+                </div>
+
+                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-image">
+                        <img src="images/camila.png" alt="Dra. Camila Barbosa">
+                        <div class="team-overlay">
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Dra. Camila Barbosa</h3>
+                        <p class="team-role">Sócia</p>
+                        <p class="team-oab">OAB/RJ 654321</p>
+                        <p class="team-specialty">Direito da Família e Sucessões</p>
+                    </div>
+                </div>
+
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-image">
+                        <img src="images/joao.png" alt="Dr. João Henrique Silva">
+                        <div class="team-overlay">
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Dr. João Henrique Silva</h3>
+                        <p class="team-role">Advogado Associado</p>
+                        <p class="team-oab">OAB/RJ 987654</p>
+                        <p class="team-specialty">Direito Trabalhista e Previdenciário</p>
+                    </div>
+                </div>
+
+                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-image">
+                        <img src="images/fernanda.png" alt="Dra. Fernanda Costa">
+                        <div class="team-overlay">
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Dra. Fernanda Costa</h3>
+                        <p class="team-role">Advogada Associada</p>
+                        <p class="team-oab">OAB/RJ 246810</p>
+                        <p class="team-specialty">Direito Penal e do Consumidor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Areas Section -->
+    <section id="atuacao" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Áreas de Atuação</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Expertise jurídica abrangente para todas as suas necessidades</p>
+            </div>
+            <div class="areas-grid">
+                <div class="area-card" data-aos="fade-up">
+                    <div class="area-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Direito Civil</h3>
+                    <p>Contratos, responsabilidade civil, direitos reais e obrigações</p>
+                </div>
+
+                <div class="area-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="area-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Direito da Família</h3>
+                    <p>Divórcio, guarda, pensão alimentícia e união estável</p>
+                </div>
+
+                <div class="area-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="area-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Direito Trabalhista</h3>
+                    <p>Reclamatórias, rescisões e relações de trabalho</p>
+                </div>
+
+                <div class="area-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="area-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Direito Penal</h3>
+                    <p>Defesa criminal e acompanhamento processual</p>
+                </div>
+
+                <div class="area-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="area-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Direito Empresarial</h3>
+                    <p>Constituição de empresas, contratos e consultoria</p>
+                </div>
+
+                <div class="area-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="area-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Direito do Consumidor</h3>
+                    <p>Defesa dos direitos do consumidor e relações de consumo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offices Section -->
+    <section id="escritorios" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos Escritórios</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Atendimento próximo a você em três localizações estratégicas</p>
+            </div>
+            <div class="offices-grid">
+                <div class="office-card" data-aos="fade-up">
+                    <div class="office-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Mesquita</h3>
+                    <p class="office-address">Av. União, 123 - Centro<br>Mesquita - RJ</p>
+                    <div class="office-hours">
+                        <i class="fas fa-clock"></i>
+                        <span>Seg - Sex: 8h às 18h</span>
+                    </div>
+                </div>
+
+                <div class="office-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="office-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Recreio dos Bandeirantes</h3>
+                    <p class="office-address">R. das Acácias, 45<br>Recreio dos Bandeirantes, RJ</p>
+                    <div class="office-hours">
+                        <i class="fas fa-clock"></i>
+                        <span>Seg - Sex: 9h às 17h</span>
+                    </div>
+                </div>
+
+                <div class="office-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="office-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Centro do Rio</h3>
+                    <p class="office-address">Av. Rio Branco, 987 - Centro<br>Rio de Janeiro - RJ</p>
+                    <div class="office-hours">
+                        <i class="fas fa-clock"></i>
+                        <span>Seg - Sex: 8h às 18h</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-white">Fale Conosco</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle text-white">Entre em contato e agende sua consulta</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>contato@drmarciodantas.adv.br</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Telefone</h4>
+                            <p>(21) 99999-9999</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Instagram</h4>
+                            <p><a href="https://www.instagram.com/drmarciodantas/" target="_blank">@drmarciodantas</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Seu email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Seu telefone">
+                    </div>
+                    <div class="form-group">
+                        <select id="subject" name="subject" required>
+                            <option value="">Selecione o assunto</option>
+                            <option value="civil">Direito Civil</option>
+                            <option value="familia">Direito da Família</option>
+                            <option value="trabalhista">Direito Trabalhista</option>
+                            <option value="penal">Direito Penal</option>
+                            <option value="empresarial">Direito Empresarial</option>
+                            <option value="consumidor">Direito do Consumidor</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Descreva seu caso" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Logo do Escritório">
+                        <h3>Dr. Márcio Dantas Advogados</h3>
+                    </div>
+                    <p>Excelência jurídica com compromisso humano desde 2005.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Áreas de Atuação</h4>
+                    <ul>
+                        <li><a href="#atuacao">Direito Civil</a></li>
+                        <li><a href="#atuacao">Direito da Família</a></li>
+                        <li><a href="#atuacao">Direito Trabalhista</a></li>
+                        <li><a href="#atuacao">Direito Penal</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> contato@drmarciodantas.adv.br</p>
+                        <p><i class="fas fa-phone"></i> (21) 99999-9999</p>
+                        <p><i class="fab fa-instagram"></i> @drmarciodantas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dr. Márcio Dantas Advogados Associados. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
